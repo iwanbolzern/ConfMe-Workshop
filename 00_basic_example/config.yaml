@@ -1,0 +1,6 @@
+name: "Database Application"
+database:
+    host: "localhost"
+    port: 5000
+    connection_type: "tcp"
+    user: "any-db-user"
