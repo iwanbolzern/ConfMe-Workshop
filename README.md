@@ -1,5 +1,8 @@
 # ConfMe Workshop
-This short workshop gives you a first glance how you can use ConfMe for data science projects. Therefore, we will first have a look how we can use ConfMe for training a Machine Learning Model on Sagemaker and afterwards deploy it as part of a FastAPI microservice. Please note that the model we are training you could easily train on your own machine and we only use Sagemaker for demonstration purposes.
+This workshop gives you a first glance how you can use ConfMe for data science projects. It is intended for people who have no prior knowledge of ConfMe, but are otherwise familiar with Python and Data Science. Each sub-folder explains one scenario with a separate readme. The scenarios we cover are:
 
-## Our Challenge
-We should not use a very difficult problem, so that we can focus on the advantages of ConfME 😉. Our challenge is to classify handwritten digits. I see you guessed it, I am talking about solving the well-known MNIST data set. Spoiler alert: it is already solved at least one thousand times 😊.
+| Scenario              | Description                                                                                                           |
+|:----------------------|:----------------------------------------------------------------------------------------------------------------------|
+| 00_basic_example      | Firs steps with ConfMe (really basic examples drawn from the official [README](https://github.com/iwanbolzern/ConfMe) |
+| 01_sagemaker_training | Training a PyTorch model on Sagemaker including hyperparameter optimization (coming soon)                             |
+| 02_fastapi_deployment | Deploying the trained Sagemaker model with FastAPI as REST Endpoint (coming soon)                                     |
