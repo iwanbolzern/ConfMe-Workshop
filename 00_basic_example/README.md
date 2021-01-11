@@ -1,6 +1,6 @@
 # Very Basic Usage of ConfME
 To get familiar with ConfMe, the first thing we will do is run through a very simple example with no real context.
-For that we will go through the example from the official ConfME readme [README](https://github.com/iwanbolzern/ConfMe).
+For that, we will go through the example from the official ConfME readme [README](https://github.com/iwanbolzern/ConfMe).
 
 ## Why are we here today?
 1. Access to configuration values must be safe at runtime. **No ```myconfig['value1']['subvalue']``` anymore!**
@@ -8,6 +8,7 @@ For that we will go through the example from the official ConfME readme [README]
 3. Secrets shall be injectable from environment variables
 
 ## 1. Install ConfME
+For chapter 1 - 5 of this README please use the source code located in ```src/```.
 ```
 pip install confme
 ```
@@ -63,3 +64,12 @@ Yes, it is what you think 😊 We can change parameters by passing them as comma
 ```
 python first_steps.py --database.host "Awesome ConfME Host"
 ```
+## 6. Advanced usage (GlobalConfiguration)
+An always requested feature was to switch from development configuration to a production configuration. This concept is pretty new to ConfME and works as follows (please see the ```src_advanced``` directory):
+1. We switch the ```AdvancedConfig``` class to inherit from ```GlobalConfig```.
+2. Now instead of loading the config file directly, we register a directory containing one or multiple config files:
+```
+AdvancedConfig.register_folder(config_folder)
+```
+3. When you now call ```AdvancedConfig.get()``` you get an instance based on the environment you are in. This is done by parsing the following environment variables and taking the configuration with the same name: ENV, ENVIRONMENT,ENVIRON, env, environment, environ
+4. Let's try it out. If we run ```export/set "ENV=dev" && python advanced_usage.py``` we expect to get the development configuration file. Ohh cool... And if we run ```export/set "ENV=prod" && python advanced_usage.py``` it changes to the prod config.

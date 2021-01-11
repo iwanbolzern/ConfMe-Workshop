@@ -1,0 +1,5 @@
+name: "Database Application"
+database:
+    host: "production"
+    port: 5432
+    user: "any-db-user"
