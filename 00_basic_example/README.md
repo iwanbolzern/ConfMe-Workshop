@@ -62,14 +62,19 @@ python first_steps.py -h
 ```
 Yes, it is what you think 😊 We can change parameters by passing them as command line arguments. Let's try it out:
 ```
-python first_steps.py --database.host "Awesome ConfME Host"
+python first_steps.py ++database.host "Awesome ConfME Host"
 ```
-## 6. Advanced usage (GlobalConfiguration)
-An always requested feature was to switch from development configuration to a production configuration. This concept is pretty new to ConfME and works as follows (please see the ```src_advanced``` directory):
-1. We switch the ```AdvancedConfig``` class to inherit from ```GlobalConfig```.
+## 6. Advanced usage (register_folder(..))
+An always requested feature was to switch from development configuration to a production configuration. This concept is 
+supported by ConfME as follows (please see the ```src_advanced``` directory):
+1. As before, we have now an ```AdvancedConfig``` class, which inherit from ```BaseConfig```.
 2. Now instead of loading the config file directly, we register a directory containing one or multiple config files:
 ```
 AdvancedConfig.register_folder(config_folder)
 ```
-3. When you now call ```AdvancedConfig.get()``` you get an instance based on the environment you are in. This is done by parsing the following environment variables and taking the configuration with the same name: ENV, ENVIRONMENT,ENVIRON, env, environment, environ
-4. Let's try it out. If we run ```export/set "ENV=dev" && python advanced_usage.py``` we expect to get the development configuration file. Ohh cool... And if we run ```export/set "ENV=prod" && python advanced_usage.py``` it changes to the prod config.
+3. When you now call ```AdvancedConfig.get()``` you get an instance based on the environment you are in. This is done 
+by parsing the following environment variables and taking the configuration with the same name: ENV, ENVIRONMENT, 
+ENVIRON, env, environment, environ
+4. Let's try it out. If we run ```export/set "ENV=dev" && python advanced_usage.py``` we expect to get the development 
+configuration file. Ohh cool... And if we run ```export/set "ENV=prod" && python advanced_usage.py``` it changes to the 
+prod config.

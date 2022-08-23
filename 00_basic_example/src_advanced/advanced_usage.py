@@ -1,6 +1,6 @@
 from pathlib import Path
 
-from confme import BaseConfig, GlobalConfig
+from confme import BaseConfig
 
 
 class DatabaseConfig(BaseConfig):
@@ -9,7 +9,7 @@ class DatabaseConfig(BaseConfig):
     user: str
 
 
-class AdvancedConfig(GlobalConfig):
+class AdvancedConfig(BaseConfig):
     name: str
     database: DatabaseConfig
 
